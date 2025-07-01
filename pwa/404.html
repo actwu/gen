@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manifest Generator</title>
+  <link rel="shortcut icon" href="https://ise.web.app/fa/10.png" type="image/x-icon">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+<style>
+/* REUSED CSS EXACTLY */
+::-webkit-scrollbar { width: 5px; height: 8px;}
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 0px;}
+::-webkit-scrollbar-thumb:hover { background: #a5a5a5; }
+:root,*{--p:#3855d7;--b:#000;--f:#fafafa;--d:#272727;--font:sans-serif;--pad:1rem;--gap:10;--mar:0.3rem;--radius:8px;--maxw:100%;--midw:100%;--fz:1rem;--fz-lg:1.2rem;margin:0;padding:0;box-sizing:border-box;background-color:var(--b);color:var(--f);text-decoration:none;font-family:var(--font);border:unset;outline:unset;}
+*:not(:last-child){margin-bottom:var(--mar);}
+body{margin:0 auto auto;background:var(--b);color:var(--f);font-family:var(--font);display:flex;flex-direction:column;padding:5px;box-sizing:border-box;width:100%;max-width: var(--midw);text-align:left;justify-content:center;place-content:center;align-content:center;min-height:100svh;}
+input,textarea,select{background:var(--b);color:var(--f);padding:var(--pad);border-radius:var(--radius);width:var(--maxw);max-width:var(--midw);font-size:var(--fz);box-sizing:border-box;outline:2px solid var(--d);}
+::placeholder {color: #6d6d6d;}
+textarea{resize:vertical;}
+button,a{background:var(--d);color:var(--f);border:none;padding:var(--pad);border-radius:var(--radius);width:var(--maxw);max-width:var(--midw);font-size:var(--fz);box-sizing:border-box;}
+span{display:flex;flex-wrap:wrap;flex-direction:row;align-items:center;justify-content:center;gap:var(--gap);}
+span>*{flex:1;}
+body>*:not(:last-child){margin-bottom:var(--mar);}
+span>*:not(:last-child){margin-right:var(--mar);}
+[p=''],[p='hover']:hover,[p='active']:active{background:var(--p);color:var(--f);cursor:pointer;}
+#seoResult {
+  top: 10px;
+  position: sticky;
+  height: 95dvh;
+}
+seos {
+  display: block;
+  padding: 10px;
+  overflow-y: scroll;
+  flex-direction: column;
+  height: 95dvh;
+}
+@media screen and (max-width: 550px) {
+  span {
+    flex-direction:column !important;
+  }
+}
+</style>
+
+<body>
+  <button style="max-width: 100px;" onmousedown="copyManifest()">Copy</button>
+
+  <span>
+    <textarea id="seoResult" readonly placeholder="Manifest JSON will appear here"></textarea>
+
+    <seos>
+      <textarea oninput="generateManifest()" id="name" placeholder="App Name"></textarea>
+      <textarea oninput="generateManifest()" id="shortName" placeholder="Short Name"></textarea>
+      <textarea oninput="generateManifest()" id="startUrl" placeholder="Start URL (e.g. /index.html)"></textarea>
+      <textarea oninput="generateManifest()" id="display" placeholder="Display (e.g. standalone)"></textarea>
+      <textarea oninput="generateManifest()" id="bgColor" placeholder="Background Color (e.g. #000000)"></textarea>
+      <textarea oninput="generateManifest()" id="themeColor" placeholder="Theme Color (e.g. #ffffff)"></textarea>
+      <textarea oninput="generateManifest()" id="iconSrc" placeholder="Icon Src URL"></textarea>
+      <textarea oninput="generateManifest()" id="iconSizes" placeholder="Icon Sizes (e.g. 192x192)"></textarea>
+      <textarea oninput="generateManifest()" id="iconType" placeholder="Icon Type (e.g. image/png)"></textarea>
+    </seos>
+  </span>
+</body>
+
+<script>
+function generateManifest() {
+  const manifest = {
+    name: document.getElementById('name').value.trim(),
+    short_name: document.getElementById('shortName').value.trim(),
+    start_url: document.getElementById('startUrl').value.trim(),
+    display: document.getElementById('display').value.trim(),
+    background_color: document.getElementById('bgColor').value.trim(),
+    theme_color: document.getElementById('themeColor').value.trim(),
+    icons: [{
+      src: document.getElementById('iconSrc').value.trim(),
+      sizes: document.getElementById('iconSizes').value.trim(),
+      type: document.getElementById('iconType').value.trim()
+    }]
+  };
+
+  document.getElementById('seoResult').value = JSON.stringify(manifest, null, 2);
+}
+
+function copyManifest() {
+  navigator.clipboard.writeText(document.getElementById('seoResult').value)
+    .then(() => alert('Copied Manifest JSON!'));
+}
+</script>
+
+</html>
