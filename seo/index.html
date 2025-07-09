@@ -22,6 +22,8 @@ input,textarea,select{background:var(--b);color:var(--f);padding:var(--pad);bord
 ::placeholder {color: #6d6d6d;}
 [say]::before,[say]:empty::before,[say]::placeholder {content: attr(say);color: var(--d);}
 textarea{resize:vertical;}
+seos a {display:block; margin-bottom:10px !important; }* p {background:transparent;}
+
 button,a,video{background:var(--d);color:var(--f);border:none;padding:var(--pad);border-radius:var(--radius);width:var(--maxw);max-width:var(--midw);font-size:var(--fz);box-sizing:border-box;}
 video,embed[video],embed[vid],iframe[video],iframe[vid]{aspect-ratio:16/9;}
 input,button,a{min-height:0.12in;min-width:0.3in;}
@@ -79,7 +81,10 @@ readonly placeholder="SEO meta and schema will appear here"></textarea>
 </textarea><textarea oninput="_fugi()" id="seoKeywords" placeholder="Keywords (comma)">
 </textarea><textarea oninput="_fugi()" id="seoAuthor" placeholder="Author">
 </textarea><textarea oninput="_fugi()" id="seoIcon" placeholder="Icon URL">
-</textarea><textarea oninput="_fugi()" id="seoURL" placeholder="Canonical URL">
+</textarea>
+<a href="https://actwu.github.io/icon/"><p>Get Icon</p>
+</a>  
+<textarea oninput="_fugi()" id="seoURL" placeholder="Canonical URL">
 </textarea><textarea oninput="_fugi()" id="seoImage" placeholder="Image URL (OG/Twitter)">
 </textarea><textarea oninput="_fugi()" id="seoTwitter" placeholder="Twitter @handle">
 </textarea><textarea oninput="_fugi()" id="seoSiteName" placeholder="Site Name">
@@ -88,6 +93,8 @@ readonly placeholder="SEO meta and schema will appear here"></textarea>
 </textarea><textarea oninput="_fugi()" id="seoBreadcrumb1" placeholder="Breadcrumb 1 (Name|URL)" value="Home|https://example.com">
 </textarea><textarea oninput="_fugi()" id="seoBreadcrumb2" placeholder="Breadcrumb 2 (Name|URL)">
 </textarea><textarea oninput="_fugi()" id="seoBreadcrumb3" placeholder="Breadcrumb 3 (Name|URL)"></textarea>
+<a href="https://actwu.github.io/gen/pwa"><p>Get PWA</p>
+</a>  
 </seos>
 </span>
 <iframe src="https://actwu.github.io/credit/" frameborder="0"></iframe>
@@ -123,6 +130,7 @@ var meta=`<title>${t}</title>
 <${"meta name='googlebot' content='index, follow'"}>
 <${"meta name='referrer' content='no-referrer-when-downgrade'"}>
 <${"link rel='icon' href='"+i+"'"}>
+<${`link rel="manifest" href="manifest.json"`}>
 <${"link rel='canonical' href='"+u+"'"}>
 <${"meta property='og:title' content='"+t+"'"}>
 <${"meta property='og:description' content='"+d+"'"}>
