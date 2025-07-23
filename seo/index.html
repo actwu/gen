@@ -77,7 +77,7 @@ readonly placeholder="SEO meta and schema will appear here"></textarea>
 
 <seos>
 <textarea oninput="_fugi()" id="seoTitle" placeholder="Title">
-</textarea><textarea oninput="_fugi()" id="seoDesc" placeholder="Description">
+</textarea><textarea oninput="_fugi()" maxlength="160" id="seoDesc" placeholder="Description">
 </textarea><textarea oninput="_fugi()" id="seoKeywords" placeholder="Keywords (comma)">
 </textarea><textarea oninput="_fugi()" id="seoAuthor" placeholder="Author">
 </textarea><textarea oninput="_fugi()" id="seoIcon" placeholder="Icon URL">
@@ -93,6 +93,8 @@ readonly placeholder="SEO meta and schema will appear here"></textarea>
 </textarea><textarea oninput="_fugi()" id="seoBreadcrumb1" placeholder="Breadcrumb 1 (Name|URL)" value="Home|https://example.com">
 </textarea><textarea oninput="_fugi()" id="seoBreadcrumb2" placeholder="Breadcrumb 2 (Name|URL)">
 </textarea><textarea oninput="_fugi()" id="seoBreadcrumb3" placeholder="Breadcrumb 3 (Name|URL)"></textarea>
+</textarea><textarea oninput="_fugi()" id="google" placeholder="Google's Verification"></textarea>
+</textarea><textarea oninput="_fugi()" id="bing" placeholder="Bing's Verification"></textarea>
 <a href="https://actwu.github.io/gen/pwa"><p>Get PWA</p>
 </a>  
 </seos>
@@ -118,6 +120,10 @@ const ogl=document.getElementById('seoOGLocale').value.trim();
 const bc1=document.getElementById('seoBreadcrumb1').value.split('|');
 const bc2=document.getElementById('seoBreadcrumb2').value.split('|');
 const bc3=document.getElementById('seoBreadcrumb3').value.split('|');
+  
+const google=document.getElementById('google').value.split('|');
+const bing=document.getElementById('bing').value.split('|');
+  
 var bc=[];
 if(bc1[0])bc.push({n:bc1[0],u:bc1[1]});
 if(bc2[0])bc.push({n:bc2[0],u:bc2[1]});
@@ -145,6 +151,10 @@ var meta=`<title>${t}</title>
 <${"meta name='twitter:image' content='"+img+"'"}>
 <${"meta name='twitter:site' content='"+tw+"'"}>
 <${"meta name='twitter:creator' content='"+tw+"'"}>
+<${`meta name='google-site-verification' content='${google}'`}>
+<${`meta name='msvalidate.01' content='${bing}'`}>
+
+
 `
 var orgSchema=`<${"script type='application/ld+json'"}>
 {
