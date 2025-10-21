@@ -1,5 +1,5 @@
 const CACHE_VERSION = 'v2'; // bump this each update
-const CACHE_NAME = `disp-cache-${CACHE_VERSION}`;
+const CACHE_NAME = `genseo-cache-${CACHE_VERSION}`;
 const ASSETS = [
 './',
 './index.html',
