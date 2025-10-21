@@ -168,5 +168,11 @@ document.getElementById('seoResult').value = foph75();
 coo896r2=()=>{window.focus();alert('Copied');navigator.clipboard.writeText(`${foph75()}`)};
 </script>
 </func>
-
+<script>
+if ('serviceWorker' in navigator) {
+navigator.serviceWorker.register('./sw.js')
+.then(()=>console.log('SW registered'))
+.catch(err=>console.warn('SW failed',err));
+}
+</script>
 </html>
