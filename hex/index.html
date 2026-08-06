@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Hex Converter</title>
+
+<title>Hexer | Gen</title>
+<meta name="description" content="A hexing minification tool to help you create your protected production Javascript">
+<meta name="keywords" content="Hex, HTML, JS, Miinified">
+<meta name="author" content="Acwtu">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<meta name="referrer" content="no-referrer-when-downgrade">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2064%2064'%3E%0A%3Ccircle%20cx%3D'32'%20cy%3D'32'%20r%3D'32'%20fill%3D'%23000000'%2F%3E%0A%3Ctext%20x%3D'32'%20y%3D'46'%20font-size%3D'38'%20font-weight%3D'700'%20text-anchor%3D'middle'%20fill%3D'%23ffffff'%20font-family%3D'Arial'%20letter-spacing%3D'-1'%3Eu*%3C%2Ftext%3E%0A%3C%2Fsvg%3E">
+<link rel="canonical" href="https://actwu.github.io/gen/hex">
+<meta property="og:title" content="Hexer | Gen">
+<meta property="og:description" content="A hexing minification tool to help you create your protected production Javascript">
+<meta property="og:image" content="">
+<meta property="og:url" content="https://actwu.github.io/gen/hex">
+<meta property="og:type" content="">
+<meta property="og:site_name" content="Hexer | Gen">
+<meta property="og:locale" content="">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hexer | Gen">
+<meta name="twitter:description" content="A hexing minification tool to help you create your protected production Javascript">
+<meta name="twitter:image" content="">
+<meta name="twitter:site" content="">
+<meta name="twitter:creator" content="">
+
+<meta name='google-site-verification' content=''>
+<meta name='msvalidate.01' content=''>
+
+<link rel="manifest" href="manifest.json">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Hexer | Gen","url":"https://actwu.github.io/gen/hex","logo":"data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2064%2064'%3E%0A%3Ccircle%20cx%3D'32'%20cy%3D'32'%20r%3D'32'%20fill%3D'%23000000'%2F%3E%0A%3Ctext%20x%3D'32'%20y%3D'46'%20font-size%3D'38'%20font-weight%3D'700'%20text-anchor%3D'middle'%20fill%3D'%23ffffff'%20font-family%3D'Arial'%20letter-spacing%3D'-1'%3Eu*%3C%2Ftext%3E%0A%3C%2Fsvg%3E","description":"A hexing minification tool to help you create your protected production Javascript"}</script>
+<style>::-webkit-scrollbar {width: 5px;height: 8px;}::-webkit-scrollbar-thumb {background: #2a2a2a;border-radius: 0px;}::-webkit-scrollbar-thumb:hover {background: #a5a5a5;}*,*:hover,*::selection,*:focus {outline: unset;border: unset;}body {margin: 0;font-family: monospace;color: #fff;background: #000;}lay {display: flex;flex-direction: column;width: 100%;height: 100vh;}#editor-container {width: 100%;height: 50dvh;position: relative;background: none;}seos {display: flex;gap: 6px;color: #eee;flex-wrap: nowrap;overflow-x: auto;width: 100%;height: 100vh;flex-direction: column;padding: 10px;box-sizing: border-box;}seos textarea {background: #000;color: #eee;border: none;padding: 8px;border-radius: 4px;font-family: monospace;flex: none;min-width: 160px;min-height: 2in;}@media (orientation: landscape) {lay {  flex-direction: row-reverse;}#editor-container {  width: 50dvw;  height: 100dvh;}seos {  flex-direction: column;  width: 50dvw;  height: 100dvh;  overflow-y: auto;  overflow-x: hidden;}seos textarea {  min-width: auto;  width: 100%;  height: 100dvh;}}button {padding: 1em;background: #222;margin: 8px;border-radius: 15px;color: #fff;outline: unset;border: unset;cursor: pointer;}.monaco-editor,.monaco-editor .margin,.monaco-editor-background {background: transparent !important;}</style>
+
+<body>
+
+<button style="max-width: 100px;" onmousedown="coo896r2()">Copy</button>
+
+<lay>
+<div id="editor-container"><div id="editor" style="width:100%; height:100%;"></div>
+</div>
+
+<seos>
+  <textarea oninput="_fugi()" id="inputSource" placeholder="Enter JavaScript or Text here..."></textarea>
+</seos>
+</lay>
+
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
+<script>
+function randVar() {
+  return '_u' + Math.floor(Math.random() * 899999 + 100000);
+}
+
+function toHex(str) {
+  let hex = '';
+  for (let i = 0; i < str.length; i++) {
+    hex += '\\x' + str.charCodeAt(i).toString(16).padStart(2, '0');
+  }
+  return hex;
+}
+
+const foph75 = () => {
+  const src = document.getElementById('inputSource').value;
+  if (!src) return '';
+  const v = randVar();
+  const hex = toHex(src);
+  return `(()=>{const ${v} = "${hex}";eval(${v});})();`;
+}
+
+let editor;
+
+require.config({paths:{vs:'https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs'}});
+require(['vs/editor/editor.main'], function() {
+  editor = monaco.editor.create(document.getElementById('editor'), {
+    value: foph75(),
+    language: 'javascript',
+    theme: 'vs-dark',
+    minimap: {enabled: false},
+    automaticLayout: true,
+    fontSize: 14,
+    readOnly: true,
+    wordWrap: 'on'
+  });
+});
+
+function _fugi() {
+  editor.setValue(foph75());
+}
+
+coo896r2 = () => {
+  window.focus();
+  navigator.clipboard.writeText(foph75()).then(() => alert('Copied'));
+};
+</script>
+</body>
+</html>
